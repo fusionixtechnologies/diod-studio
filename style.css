@@ -358,40 +358,6 @@ nav a:hover::after { width: 100%; }
     transform: translateY(-3px);
 }
 
-/* Scroll indicator */
-.scroll-hint {
-    position: absolute;
-    bottom: 36px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    opacity: 0;
-    animation: fadeUp .6s 1.4s forwards;
-}
-
-.scroll-hint span {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.5);
-}
-
-.scroll-line {
-    width: 1px;
-    height: 50px;
-    background: linear-gradient(to bottom, transparent, var(--gold));
-    animation: scrollLine 1.8s 1.8s ease-in-out infinite;
-    transform-origin: top;
-}
-
-@keyframes scrollLine {
-    0%   { transform: scaleY(0); opacity: 0; }
-    50%  { transform: scaleY(1); opacity: 1; }
-    100% { transform: scaleY(1); opacity: 0; }
-}
 
 /* ──────────────────────────────
    MARQUEE TICKER
@@ -777,13 +743,14 @@ nav a:hover::after { width: 100%; }
 
 .service-item {
     border: 1px solid rgba(255,255,255,.15);
-    padding: 32px 28px;
+    padding: 20px 28px;
+    width: 280px;
     color: var(--cream);
     font-size: 22px;
     font-family: 'Cormorant Garamond', serif;
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border-radius: 4px;
+    border-radius: 40px;
     transition: background .4s, transform .4s var(--ease-out-expo),
                 border-color .4s, box-shadow .4s;
     cursor: default;
@@ -1079,6 +1046,14 @@ nav a:hover::after { width: 100%; }
 
 .footer-socials a:hover { color: var(--gold); }
 
+.footer-flip-d{
+    display:inline-block;
+    transform:scaleX(-1);
+    margin-left:-8px; /* adjust if needed */
+}
+
+
+
 /* ──────────────────────────────
    ANIMATIONS & REVEAL
 ────────────────────────────── */
@@ -1222,11 +1197,38 @@ nav a:hover::after { width: 100%; }
     /* Timeless */
     .timeless { padding: 60px 20px; }
     .timeless-content { width: 100%; }
-    .timeless-main-img img { height: 280px; }
+    .timeless-main-img{
+    width:100%;
+}
+
+.timeless-main-img img{
+    width:100%;
+    height:580px;
+    object-fit:cover;
+    display:block;
+    border-radius:15px;
+}
     .timeless-text h2 { font-size: clamp(28px, 7vw, 40px); }
     .timeless-text p { font-size: 19px; }
     .timeless-stats { grid-template-columns: 1fr; gap: 1px; }
     .stat-num { font-size: 44px; }
+
+    /* Timeless Mobile Fix */
+.timeless-content{
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+}
+
+.timeless-main-img{
+    width:100%;
+    height:auto;
+}
+
+
+.timeless-text{
+    width:100%;
+}
 
     /* Wedding */
     .wedding-series { padding: 70px 20px; }
@@ -1272,4 +1274,61 @@ nav a:hover::after { width: 100%; }
         text-align: center;
     }
     .footer-socials { justify-content: center; }
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+
+    font-family:'Playfair Display';
+    font-size:24px;
+    letter-spacing:2px;
+    color:white;
+
+    gap:0;
+}
+
+.flip-d{
+    display:inline-block;
+    transform:scaleX(-1);
+    margin-left:-2px; /* adjust this value */
+}
+
+.studio-text{
+    margin-left:10px;
+    font-size:16px;
+    letter-spacing:4px;
+    font-family:'Inter';
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+
+    color:white;
+}
+
+.logo span{
+
+    font-family:'Playfair Display';
+    font-size:26px;
+
+}
+
+.flip-d{
+
+    display:inline-block;
+    transform:scaleX(-1);
+
+}
+
+.studio-text{
+
+    margin-left:12px;
+
+    font-family:'Inter';
+    font-size:13px;
+
+    letter-spacing:4px;
+
 }
