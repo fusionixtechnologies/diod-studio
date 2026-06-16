@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+<title>DIOD Studios | Wedding Photography & Cinematic Videography in Chennai</title>
+<meta name="description" content="DIOD Studios offers premium wedding photography and cinematic videography in Chennai. Explore stunning couple shoots, pre-wedding, and wedding films.">
+<meta name="keywords" content="DIOD Studios, wedding photography Chennai, cinematic wedding video, pre wedding shoot Chennai, couple photography, wedding videographer India">
+<meta name="author" content="DIOD Studios">
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="DIOD Studios | Wedding Photography Chennai">
+<meta property="og:description" content="Premium wedding photography and cinematic films by DIOD Studios.">
+<meta property="og:image" content="https://yourdomain.com/preview.jpg">
+<meta property="og:url" content="https://yourdomain.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DIOD Studios Portfolio">
+<meta name="twitter:description" content="Cinematic wedding photography and videography.">
+<meta name="twitter:image" content="https://yourdomain.com/preview.jpg">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background:#000;
+  color:#fff;
+}
+.logo {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+    font-family: 'Playfair Display', serif;
+}
+.flip {
+  display: inline-block;
+  transform: scaleX(-1);
+   font-family: 'Playfair Display', serif;
+}
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:25px 60px;
+}
+.logo{
+  font-size:22px;
+  font-weight:600;
+}
+.nav-links{
+  display:flex;
+  gap:40px;
+}
+.nav-links a{
+  text-decoration:none;
+  color:#fff;
+}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:40px;
+  padding:40px 80px;
+}
+.filter-buttons{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:30px;
+}
+.filter-buttons button{
+  padding:10px 25px;
+  border-radius:30px;
+  border:1px solid #555;
+  background:transparent;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+.filter-buttons button:hover{
+  background:white;
+  color:black;
+}
+.filter-buttons .active{
+  background:white;
+  color:black;
+}
+.card{
+  border-radius:20px;
+  overflow:hidden;
+}
+.card video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  aspect-ratio:11/16;
+  cursor:pointer;
+}
+video:fullscreen {
+  width:auto !important;
+  height:100vh !important;
+  object-fit:contain !important;
+  background:black;
+}
+video:-webkit-full-screen {
+  width:auto !important;
+  height:100vh !important;
+  object-fit:contain !important;
+  background:black;
+}
+/* Make image fit inside card */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Preview Fullscreen */
+#previewBox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#previewImg {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+#closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+.title{
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+.cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.card{
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.4s;
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 11/16; 
+  border-radius: 20px;
+  cursor: pointer;
+}
+.card:hover{
+  transform: scale(1.05);
+}
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+.card{
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.4s;
+  animation: float 6s ease-in-out infinite;
+}
+.card:nth-child(1){
+  animation-duration: 5s;
+}
+
+.card:nth-child(2){
+  animation-duration: 6s;
+}
+
+.card:nth-child(3){
+  animation-duration: 7s;
+}
+
+.card:nth-child(1){
+  transform: rotate(-2deg);
+}
+
+.card:nth-child(2){
+  transform: rotate(1deg);
+}
+
+.card:nth-child(3){
+  transform: rotate(-1deg);
+}
+@keyframes floatSmooth {
+  0%   { transform: translateY(0px) scale(1); }
+  50%  { transform: translateY(-20px) scale(1.02); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+.card{
+  animation: floatSmooth 8s ease-in-out infinite;
+}
+@media(max-width:900px){
+  .cards{
+    grid-template-columns: 1fr;
+  }
+}
+@media(max-width:900px){
+  .gallery{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+@media(max-width:600px){
+  .gallery{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+<body>
+<div class="navbar">
+  <div class="logo">
+  DIO<span class="flip">D</span>
+   <span class="studio">Studio</span>
+</div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Gallery</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+<div class="filter-buttons">
+  <button onclick="showType('all')" class="active">All</button>
+  <button onclick="showType('video')">Videos</button>
+  <button onclick="showType('photo')">Photos</button>
+</div>
+<section class="gallery">
+<div class="card video">
+  <video 
+    src="video/video1.MOV"
+    poster="thumbnail/video1.jpg"
+    loop
+    muted
+    playsinline
+    preload="none"
+    tabindex="0"
+    title="Cinematic Wedding Video by DIOD Studios"
+    aria-label="Wedding cinematic video DIOD Studios Chennai">
+  </video>
+</div>
+<div class="card video">
+  <video 
+    src="video/video2.mp4"
+    poster="thumbnail/video2.jpg"
+    loop
+    muted
+    playsinline
+   preload="none"
+    tabindex="0"
+    title="Cinematic Wedding Video by DIOD Studios"
+    aria-label="Wedding cinematic video DIOD Studios Chennai">
+  </video>
+</div>
+<div class="card video">
+  <video 
+    src="video/video3.mp4"
+    poster="thumbnail/video3.jpg"
+    loop
+    preload="none"
+    tabindex="0"
+    title="Couple Cinematic Video by DIOD Studios"
+    aria-label="Couple cinematic video DIOD Studios">
+  </video>
+</div>
+<div class="card video">
+  <video 
+    src="video/video4.mp4"
+    poster="thumbnail/video4.jpg"
+    loop
+   preload="none"
+    tabindex="0"
+    title="Wedding Highlights Film DIOD Studios"
+    aria-label="Wedding highlights Chennai videography">
+  </video>
+</div>
+<div class="card video">
+  <video 
+    src="video/video5.mp4"
+    poster="thumbnail/video5.png"
+    loop
+    preload="none"
+    tabindex="0"
+    title="Cinematic Love Story Video"
+    aria-label="Love story cinematic video DIOD Studios">
+  </video>
+</div>
+<div class="card video">
+  <video 
+    src="video/video6.mp4"
+    poster="thumbnail/video6.jpg"
+    loop
+    preload="none"
+    tabindex="0"
+    title="Bride Groom Entry Cinematic Shot"
+    aria-label="Bride groom entry cinematic video">
+  </video>
+</div>
+<div class="card video">
+  <video 
+    src="video/video7.mp4"
+    poster="thumbnail/video7.jpg"
+    loop
+  preload="none"
+    tabindex="0"
+    title="Cinematic Love Story Video"
+    aria-label="Love story cinematic video DIOD Studios">
+  </video>
+</div>
+<div class="card video">
+  <video 
+    src="video/video8.mp4"
+    poster="thumbnail/video8.jpg"
+    loop
+   preload="none"
+    tabindex="0"
+    title="Cinematic Love Story Video"
+    aria-label="Love story cinematic video DIOD Studios">
+  </video>
+</div>
+<div class="card video">
+  <video 
+    src="video/video9.mp4"
+    poster="thumbnail/video9.jpg"
+    loop
+   preload="none"
+    tabindex="0"
+    title="Cinematic Love Story Video"
+    aria-label="Love story cinematic video DIOD Studios">
+  </video>
+</div>
+
+<div class="card video">
+  <video 
+    src="video/video10.mp4"
+    poster="thumbnail/video10.jpg"
+    loop
+   preload="none"
+    tabindex="0"
+    title="Cinematic Love Story Video"
+    aria-label="Love story cinematic video DIOD Studios">
+  </video>
+</div>
+
+<div class="card video">
+  <video 
+    src="video/video11.mp4"
+    poster="thumbnail/video11.jpg"
+    loop
+   preload="none"
+    tabindex="0"
+    title="Cinematic Love Story Video"
+    aria-label="Love story cinematic video DIOD Studios">
+  </video>
+</div>
+<div class="card video">
+  <video 
+    src="video/video12.mp4"
+    poster="thumbnail/video12.jpg"
+    loop
+    preload="none"
+    tabindex="0"
+    title="Cinematic Love Story Video"
+    aria-label="Love story cinematic video DIOD Studios">
+  </video>
+</div>
+<div class="card video">
+  <video 
+    src="video/video13.mp4"
+    poster="thumbnail/video13.jpg"
+    loop
+   preload="none"
+    tabindex="0"
+    title="Cinematic Love Story Video"
+    aria-label="Love story cinematic video DIOD Studios">
+  </video>
+</div>
+<div class="card video">
+  <video 
+    src="video/video14.mp4"
+    poster="thumbnail/video14.jpg"
+    loop
+    preload="none"
+    tabindex="0"
+    title="Cinematic Love Story Video"
+    aria-label="Love story cinematic video DIOD Studios">
+  </video>
+</div>
+<div class="card video">
+  <video 
+    src="video/video15.mp4"
+    poster="thumbnail/video15.jpg"
+    loop
+    preload="none"
+    tabindex="0"
+    title="Wedding Reel Edit DIOD Studios"
+    aria-label="Wedding reel editing Chennai">
+  </video>
+</div>
+<div class="card photo">
+  <img src="image/img1.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img2.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img2.1.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img3.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img4.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img5.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img7.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img8.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img9.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img10.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img11.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img12.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img13.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img14.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img15.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img16.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img17.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img18.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img19.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img20.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img21.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img23.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img24.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img25.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img26.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img27.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img28.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img29.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img30.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img31.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img32.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img33.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img34.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img35.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img36.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img37.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img38.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img39.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img40.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img41.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img42.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img43.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img44.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img1,2.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img45.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img46.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img47.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img48.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img49.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img50.jpg">
+</div>
+<div class="card photo">
+  <img src="image/img01.jpg">
+</div>
+</section>
+<!-- Image Preview Box -->
+<div id="previewBox">
+  <span id="closeBtn">&times;</span>
+  <img id="previewImg">
+</div>
+<script>
+function showType(type){
+  const cards = document.querySelectorAll(".card");
+  const buttons = document.querySelectorAll(".filter-buttons button");
+  buttons.forEach(btn => btn.classList.remove("active"));
+  event.target.classList.add("active");
+  cards.forEach(card => {
+    if(type === "all"){
+      card.style.display = "block";
+    }
+    else if(card.classList.contains(type)){
+      card.style.display = "block";
+    }
+    else{
+      card.style.display = "none";
+    }
+  });
+}
+const videos = document.querySelectorAll(".card video");
+videos.forEach(video => {
+  video.pause();
+  video.controls = false;
+  video.addEventListener("click", (e) => {
+    e.stopPropagation();
+    videos.forEach(v => {
+      if (v !== video) {
+        v.pause();
+        v.controls = false;
+        v.removeAttribute("controls");
+        v.currentTime = 0;
+        v.load();
+      }
+    });
+    video.controls = true;
+    video.setAttribute("controls", "true");
+    video.play();
+  });
+  video.addEventListener("ended", () => {
+    video.controls = false;
+    video.removeAttribute("controls");
+    video.currentTime = 0;
+    video.load(); 
+  });
+
+});
+
+const images = document.querySelectorAll(".card img");
+const previewBox = document.getElementById("previewBox");
+const previewImg = document.getElementById("previewImg");
+const closeBtn = document.getElementById("closeBtn");
+
+// DOUBLE CLICK (PC)
+images.forEach(img => {
+  img.addEventListener("dblclick", function () {
+    previewBox.style.display = "flex";
+    previewImg.src = this.src;
+  });
+});
+
+// DOUBLE TAP (MOBILE)
+let lastTap = 0;
+
+images.forEach(img => {
+  img.addEventListener("touchend", function () {
+    let currentTime = new Date().getTime();
+    let tapLength = currentTime - lastTap;
+
+    if (tapLength < 300 && tapLength > 0) {
+      previewBox.style.display = "flex";
+      previewImg.src = this.src;
+    }
+
+    lastTap = currentTime;
+  });
+});
+
+// CLOSE BUTTON
+closeBtn.addEventListener("click", () => {
+  previewBox.style.display = "none";
+});
+
+// CLICK OUTSIDE CLOSE
+previewBox.addEventListener("click", (e) => {
+  if (e.target === previewBox) {
+    previewBox.style.display = "none";
+  }
+});
+</script>
+
+</body>
+</html>
