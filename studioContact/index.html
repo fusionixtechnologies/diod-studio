@@ -59,8 +59,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
-```
-
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -72,8 +70,49 @@
     <div class="spotlight"></div>
 
 <section class="hero">
+    <div class="hero-bg"></div>
 
-    <div class="overlay"></div>
+    <!-- Navigation -->
+    <nav aria-label="Main navigation">
+
+        <a href="index.html" class="logo">
+            <span>DIO</span>
+            <span class="flip-d">D</span>
+            <span class="studio-text">STUDIO</span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#" class="nav-cta">Book Now</a></li>
+        </ul>
+
+        <!-- Hamburger -->
+        <button class="nav-toggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </nav>
+
+    <!-- Mobile Fullscreen Menu -->
+    <div class="mobile-menu" role="dialog" aria-label="Navigation menu">
+        <a href="#">Home</a>
+        <a href="#">Gallery</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <a href="#" class="nav-cta">Book Now</a>
+    </div>
+
+</section>
+</nav>
+<div class="overlay"></div>
 
     <div class="hero-slider">
     <div class="slide slide1" aria-label="Wedding Photography">
